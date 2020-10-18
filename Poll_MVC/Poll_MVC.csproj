@@ -8,7 +8,6 @@
     <Folder Include="Domain\Handlers\Contracts\" />
     <Folder Include="Domain\Models\Contracts\" />
     <Folder Include="Domain\Repositories\Contracts\" />
-    <Folder Include="Domain\Responses\Contracts\" />
     <Folder Include="Infra\Repositories\" />
   </ItemGroup>
 
