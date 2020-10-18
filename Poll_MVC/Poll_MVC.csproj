@@ -5,11 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Commands\" />
-    <Folder Include="Domain\Handlers\" />
-    <Folder Include="Domain\Models\" />
-    <Folder Include="Domain\Responses\" />
-    <Folder Include="Domain\Repositories\" />
+    <Folder Include="Domain\Handlers\Contracts\" />
+    <Folder Include="Domain\Models\Contracts\" />
+    <Folder Include="Domain\Repositories\Contracts\" />
+    <Folder Include="Domain\Responses\Contracts\" />
     <Folder Include="Infra\Repositories\" />
   </ItemGroup>
 
