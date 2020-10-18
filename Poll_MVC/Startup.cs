@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Poll_MVC.Domain.Repositories;
 using Poll_MVC.Infra.Contexts;
+using Poll_MVC.Infra.Repositories;
 
 namespace Poll_MVC
 {
@@ -22,6 +24,9 @@ namespace Poll_MVC
         {
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("DB"));
+
+            services.AddTransient<IPollRepository, PollRepository>();
+            services.AddTransient<IOptionRepository, OptionRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
