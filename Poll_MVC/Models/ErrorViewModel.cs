@@ -1,5 +1,3 @@
-using System;
-
 namespace Poll_MVC.Models
 {
     public class ErrorViewModel
