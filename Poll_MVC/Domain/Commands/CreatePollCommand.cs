@@ -9,7 +9,14 @@ namespace Poll_MVC.Domain.Commands
         [MaxLength(150)]
         public string Poll_description { get; set; }
         [Required(ErrorMessage = "You should add options to your poll!")]
-        [MinLength(2)]
-        public string[] Options { get; set; }
+
+        [MaxLength(150)]
+        public string Option1 { get; set; }
+
+        [MaxLength(150)]
+        public string Option2 { get; set; }
+
+        [MaxLength(150)]
+        public string Option3 { get; set; }
     }
 }

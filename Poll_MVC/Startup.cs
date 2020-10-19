@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Poll_MVC.Domain.Handlers;
 using Poll_MVC.Domain.Repositories;
 using Poll_MVC.Infra.Contexts;
 using Poll_MVC.Infra.Repositories;
@@ -27,6 +28,9 @@ namespace Poll_MVC
 
             services.AddTransient<IPollRepository, PollRepository>();
             services.AddTransient<IOptionRepository, OptionRepository>();
+
+            services.AddTransient<PollHandler, PollHandler>();
+            services.AddTransient<OptionHandler, OptionHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

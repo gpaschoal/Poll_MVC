@@ -1,0 +1,45 @@
+﻿@model CreatePollCommand
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form asp-action="Create">
+    <div class="form-group row">
+        <label asp-for="Poll_description" class="control-label"></label>
+        <input asp-for="Poll_description" class="form-control" />
+        <span asp-validation-for="Poll_description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Option1" class="control-label"></label>
+        <input asp-for="Option1" class="form-control" />
+        <span asp-validation-for="Option1" class="text-danger"></span>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Option2" class="control-label"></label>
+        <input asp-for="Option2" class="form-control" />
+        <span asp-validation-for="Option2" class="text-danger"></span>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Option3" class="control-label"></label>
+        <input asp-for="Option3" class="form-control" />
+        <span asp-validation-for="Option3" class="text-danger"></span>
+    </div>
+
+    <div class="form-group row">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

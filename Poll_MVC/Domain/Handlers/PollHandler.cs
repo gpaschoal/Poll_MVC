@@ -16,8 +16,9 @@ namespace Poll_MVC.Domain.Handlers
         {
             var poll = new Poll(command.Poll_description);
 
-            foreach (var option in command.Options)
-                poll.AddOption(option);
+            poll.AddOption(command.Option1);
+            poll.AddOption(command.Option2);
+            poll.AddOption(command.Option3);
 
             int idPoll = _repository.Create(poll);
 
