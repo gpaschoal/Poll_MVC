@@ -16,6 +16,7 @@ namespace Poll_MVC.Infra.Repositories
         {
             return _context
                     .Options
+                    .Include(x => x.Votes)
                     .AsNoTracking()
                     .FirstOrDefault(x => x.PollId == idPoll && x.Id == idOption);
         }
