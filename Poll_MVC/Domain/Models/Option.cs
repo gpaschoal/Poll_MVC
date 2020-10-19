@@ -20,8 +20,6 @@ namespace Poll_MVC.Domain.Models
         public int Id { get; private set; }
         [Column(TypeName = "char(150)")]
         public string Description { get; private set; }
-        [Column(TypeName = "int")]
-        public int QuantityVotes { get; private set; }
         public virtual IList<OptionVote> Votes { get; private set; }
 
         public void AddVote()
