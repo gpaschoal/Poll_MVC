@@ -1,0 +1,53 @@
+﻿@model Poll
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <div class="row">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Votes</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Options)
+                    {
+                        <tr>
+                            <th scope="row">@item.Id</th>
+                            <td>@item.Description</td>
+                            <td>@(item.Votes?.Count ?? 0)</td>
+                            <td>
+                                <a asp-controller="Poll"
+                                   asp-action="Vote"
+                                   asp-route-pollId="@item.PollId"
+                                   asp-route-option_id="@item.Id"
+                                   
+                                   class="btn btn-success">
+                                    Vote
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </dl>
+</div>
+
+<div class="row text-right">
+    <a asp-action="Index" class="btn btn-info">Back to List</a>
+</div>

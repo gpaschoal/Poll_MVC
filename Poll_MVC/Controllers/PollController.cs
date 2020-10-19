@@ -23,6 +23,7 @@ namespace Poll_MVC.Controllers
             return View(polls);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -36,6 +37,36 @@ namespace Poll_MVC.Controllers
         )
         {
             var result = handler.Handle(command);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public IActionResult Details(
+            [FromServices] PollHandler handler,
+            int? id
+        )
+        {
+            if (id == null)
+                return NotFound();
+
+            var poll = handler.GetPoll(id ?? 0);
+
+            if (poll == null)
+                return NotFound();
+
+            return View(poll);
+        }
+
+        [HttpPost, ActionName("Vote")]
+        public IActionResult Vote(
+            //[FromServices] OptionHandler handler,
+            int PollId,
+            int Option_id
+        //,
+        //[Bind("PollId,Option_id")] VotePollCommand command
+        )
+        {
+            //var result = handler.Handle(command);
             return RedirectToAction(nameof(Index));
         }
     }
